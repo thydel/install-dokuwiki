@@ -1,0 +1,4 @@
+- src: manala.shorewall
+- src: geerlingguy.apache
+- src: geerlingguy.php
+- src: git+https://github.com/thydel/ansible-role-dokuwiki.git # petermosmans.dokuwiki

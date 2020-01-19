@@ -1,0 +1,15 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- hosts: wiki
+  become: true
+  roles:
+    - role: geerlingguy.php
+  post_tasks:
+    - copy:
+        content: |
+          <?php phpinfo(); ?>
+        dest: /var/www/html/info.php
+        owner: www-data
+        group: www-data
+      when: test is defined

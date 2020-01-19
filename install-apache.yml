@@ -1,0 +1,10 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- hosts: wiki
+  become: true
+  roles:
+    - role: geerlingguy.apache
+      apache_packages: "{{ __apache_packages + more_apache_packages }}"
+      apache_create_vhosts: False
+      vars: { more_apache_packages: [ libapache2-mod-php7.0 ] }

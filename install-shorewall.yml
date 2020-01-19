@@ -1,0 +1,24 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- hosts: wiki
+  become: true
+  roles:
+    - role: manala.shorewall
+      manala_shorewall_configs:
+        - file: policy
+          config:
+            - fw:  all ACCEPT
+            - net: all DROP   info
+            - all: all REJECT info
+        - file: interfaces
+          config:
+            - net: eth0 detect tcpflags,blacklist,bridge,nosmurfs
+        - file: zones
+          config:
+            - net: ipv4
+            - fw:  firewall
+        - file: rules
+          config:
+            - ACCEPT: net fw tcp 22,80,443 - -
+            - Ping(ACCEPT): all fw

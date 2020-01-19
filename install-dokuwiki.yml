@@ -1,0 +1,43 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- hosts: wiki
+  become: true
+  vars:
+    vhost: wiki.{{ domain }}
+    base: /var/www/vhosts/{{ vhost }}
+  roles:
+    # Galaxy petermosmans.dokuwiki
+    # github fork git@github.com:PeterMosmans/ansible-role-dokuwiki.git
+    # git -C roles clone git@github.com:thydel/ansible-role-dokuwiki.git
+    - role: ansible-role-dokuwiki
+      dokuwiki_user: www-data
+      dokuwiki_provision: true
+      dokuwiki_vhost: '{{ vhost }}'
+      dokuwiki_base: '{{ base }}'
+      dokuwiki_configure_apache2: true
+      dokuwiki_plugins:
+        - name: tag
+          src: https://github.com/dokufreaks/plugin-tag/tarball/master
+        - name: pagelist
+          src: https://github.com/dokufreaks/plugin-pagelist/tarball/master
+      dokuwiki_plugins_remove:
+        - name: authad
+        - name: authldap
+        - name: authmysql
+        - name: authpdo
+        - name: authpgsql
+        - name: info
+        - name: popularity
+      dokuwiki_preconfigure: true
+      dokuwiki_savedir: '{{ base }}/data'
+      dokuwiki_template: bootstrap3
+      dokuwiki_templates:
+        - name: bootstrap3
+          src: https://github.com/LotarProject/dokuwiki-template-bootstrap3/tarball/master
+      dokuwiki_users:
+        - login: admin
+          hash: "$2y$05$Yk8wcl.ao.CxfJL0nw/bsuLyE3SCW8YBUhRbqLM8w9E7Hn7Kel1YG"
+          name: Administrator
+          email: admin@admin
+          groups: admin,user

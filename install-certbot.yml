@@ -1,0 +1,17 @@
+#!/usr/bin/env ansible-playbook
+---
+
+- hosts: wiki
+  become: true
+  tasks:
+    - apt: { name: [ certbot, python-certbot-apache ] }
+    - command:
+        argv:
+          - certbot
+          - -n
+          - --agree-tos
+          - --email
+          - t.delamare@laposte.net
+          - -d wiki.{{ domain }}
+          - --apache
+          - --redirect
