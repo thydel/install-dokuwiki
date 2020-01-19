@@ -190,8 +190,8 @@ wget http://wiki.$domain -qO- | lynx -stdin -dump | head
 
 ## Letsencrypt
 
-As my previous exeperience with letsencrypt.org was limited to
-obtaining an renewing a unique wildcard certifcate, I hesitate between
+As my previous experience with letsencrypt.org was limited to
+obtaining an renewing a unique wildcard certificate, I hesitate between
 using a role based on `certbot` and the native `acme` ansible module
 set.
 
@@ -211,7 +211,7 @@ again `install-certbot.yml` will would fix it.
 
 # Backup
 
-- Mininal 7 days TGZ of the whole filetree
+- Minimal 7 days TGZ of the whole filetree
 - Should be remote sync
 - Could be crypted
 - Could use simple rsync base incremental (link based) scheme
