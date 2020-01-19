@@ -173,6 +173,18 @@ ansible-playbook install-dokuwiki.yml
 wget http://wiki.$domain -qO- | lynx -stdin -dump | head
 ```
 
+[petermosmans/dokuwiki]:
+	https://galaxy.ansible.com/petermosmans/dokuwiki "galaxy.ansible.com"
+
+[PeterMosmans/ansible-role-dokuwiki]:
+	https://github.com/PeterMosmans/ansible-role-dokuwiki "github.com repo"
+
+[thydel/ansible-role-dokuwiki]:
+	https://github.com/thydel/ansible-role-dokuwiki "forked github.com repo"
+
+[Uses new apt way and corrects src var for unarchive]:
+	https://github.com/thydel/ansible-role-dokuwiki/commit/09accc8d759078038de3460d037d2e62dba5d170 "github.com commit"
+
 ## Letsencrypt
 
 As my previous exeperience with letsencrypt.org was limited to
