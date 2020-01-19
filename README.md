@@ -185,6 +185,9 @@ wget http://wiki.$domain -qO- | lynx -stdin -dump | head
 [Uses new apt way and corrects src var for unarchive]:
 	https://github.com/thydel/ansible-role-dokuwiki/commit/09accc8d759078038de3460d037d2e62dba5d170 "github.com commit"
 
+[Configures for a vhost]:
+	https://github.com/thydel/ansible-role-dokuwiki/commit/a871ce1dbc57e901e23a99697a1546cc330d2dbf "github.com commit"
+
 ## Letsencrypt
 
 As my previous exeperience with letsencrypt.org was limited to
