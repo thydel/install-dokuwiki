@@ -1,7 +1,7 @@
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
-- [install-dokuwiki](#install-dokuwiki)
+- [Install dokuwiki](#install-dokuwiki)
 - [NOPASSWD for the session](#nopasswd-for-the-session)
 - [First sight](#first-sight)
 - [Update the system](#update-the-system)
